@@ -1,0 +1,8 @@
+robot.SocketCreate("192.168.5.11",5555,"s1")
+robot.SocketSendString("G","s1")
+x=robot.SocketRecvDouble("s1")
+print(x)
+robot.SocketSendString("G","s1")
+y=robot.SocketRecvDouble("s1")
+print(y)
+robot.MoveL(robot.Offs(p8,x,y,0,0,0,0),v1)

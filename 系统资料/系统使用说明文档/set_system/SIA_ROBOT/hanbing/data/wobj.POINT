@@ -1,0 +1,29 @@
+
+[wobj0]
+robhold                        = 0
+ufprog                         = 0
+ufmec                          = 0
+uframe                         = wobjuserframe0
+oframe                         = wobjworkframe0
+
+[wobj1]
+robhold                        = 0
+ufprog                         = 0
+ufmec                          = 0
+uframe                         = wobjuserframe1
+oframe                         = wobjworkframe1
+
+[wobj2]
+robhold                        = 0
+ufprog                         = 0
+ufmec                          = 0
+uframe                         = wobjuserframe2
+oframe                         = wobjworkframe2
+
+[wobj10]
+robhold                        = 0
+ufprog                         = 0
+ufmec                          = 0
+uframe                         = wobjuserframe10
+oframe                         = wobjworkframe10
+

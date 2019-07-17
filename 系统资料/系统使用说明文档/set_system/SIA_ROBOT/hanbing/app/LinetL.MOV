@@ -1,0 +1,8 @@
+print(robot.version)
+robot.AccSet(50,50)
+robot.MoveA(j1,v1)
+while(1)do
+   robot.MoveL(p2,v1,z1)
+   robot.MoveL(p3,v1,z1)
+   robot.MoveL(p1,v1,z1)
+end

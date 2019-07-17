@@ -1,0 +1,10 @@
+robot.SocketCreate("192.168.5.11",5555,"s1")
+robot.SocketSendString("G","s1")
+r1=robot.SocketRecvString("s1")
+
+robot.SocketSendString("G","s1")
+r2=robot.SocketRecvString("s1")
+
+print("++++")
+print(r1)
+print(r2)

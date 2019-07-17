@@ -1,0 +1,143 @@
+robot.sleep(1)
+dy1=robot.ClientCreate("192.168.0.88",3360,"s0")
+print(dy1)
+robot.sleep(1)
+dy2=robot.ClientCreate("192.168.0.161",8080,"s1")
+print(dy2)
+robot.sleep(1)
+robot.MoveA(j5,v2)
+robot.sleep(1)
+i=0
+lie=0
+while(1)   do
+  row=0
+  if i>2 then
+    row=1
+  end
+  robot.SocketSendString("1201,get","s0")
+  qq=robot.SocketRecvDouble("s0")
+  print(qq)
+  if qq==1 then
+    robot.SocketSendString("1203,get","s0")
+    xx=robot.SocketRecvDouble("s0")
+    if xx==1 then
+      robot.SocketSendString("abcd0002","s1")
+      robot.SocketSendByte(13,"s1")
+      yy=robot.SocketRecvDoubleArray("s1")--array num 4
+      robot.SocketSendString("1207,put:1","s0")
+      if yy[0]==0 then
+        print(yy[1])
+        print(yy[2])
+        robot.MoveL(robot.Offs(p3,yy[1],yy[2],200,0,0,0),v2)
+        robot.sleep(1)
+        robot.MoveL(robot.Offs(p3,yy[1],yy[2],0,0,0,0),v2)
+        robot.SetDo(2,0) --open
+        robot.SetDo(1,1)
+        robot.sleep(1)
+        robot.MoveL(robot.Offs(p3,yy[1],yy[2],200,0,0,0),v2)
+        robot.MoveL(robot.Offs(p5,100*(i-row*3),-100*row,200,0,0,0),v2)
+        robot.sleep(1)
+        robot.MoveL(robot.Offs(p5,100*(i-row*3),-100*row,0,0,0,0),v2)
+        robot.SetDo(1,0) --close
+        robot.SetDo(2,1)
+        robot.sleep(1)
+        robot.SetDo(2,0)
+        robot.MoveL(robot.Offs(p5,100*(i-row*3),-100*row,200,0,0,0),v2)
+        robot.SocketSendString("1207,put:0","s0")
+        i=i+1
+        if i==6 then
+          i=0
+        end 
+      end    
+    end
+    if xx==2 then
+      robot.SocketSendString("1401,get","s0")
+      ll=robot.SocketRecvDouble("s0")
+	  if ll==1 then
+	    robot.SocketSendString("abcd0001","s1")
+		robot.SocketSendByte(13,"s1")
+		yy=robot.SocketRecvDoubleArray("s1")--array num 4
+	  	robot.SocketSendString("1207,put:1","s0")
+	  	if yy[0]==0 then
+		  robot.MoveL(robot.Offs(p3,yy[1],yy[2],200,0,0,0),v2)
+		  robot.sleep(1)
+		  robot.MoveL(robot.Offs(p3,yy[1],yy[2],0,0,0,0),v2)
+		  robot.SetDo(2,0) --open
+		  robot.SetDo(1,1)
+		  robot.sleep(1)
+		  robot.MoveL(robot.Offs(p3,yy[1],yy[2],200,0,0,0),v2)
+		  robot.MoveL(robot.Offs(p5,100*(i-row*3),-100*row,200,0,0,0),v2)
+		  robot.sleep(1)
+		  robot.MoveL(robot.Offs(p5,100*(i-row*3),-100*row,0,0,0,0),v2)
+		  robot.SetDo(1,0) --close
+		  robot.SetDo(2,1)
+		  robot.sleep(1)
+		  robot.SetDo(2,0)
+		  robot.MoveL(robot.Offs(p5,100*(i-row*3),-100*row,200,0,0,0),v2)
+		  robot.SocketSendString("1207,put:0","s0")
+		  i=i+1
+		  if i==6 then
+	        i=0
+	      end 
+	    end  
+	  end
+	  if ll==2 then
+	  	robot.SocketSendString("abcd0002","s1")
+	  	robot.SocketSendByte(13,"s1")
+	  	yy=robot.SocketRecvDoubleArray("s1")--array num 4
+	  	robot.SocketSendString("1207,put:1","s0")
+	  	if yy[0]==0 then
+		  robot.MoveL(robot.Offs(p3,yy[1],yy[2],200,0,0,0),v2)
+		  robot.sleep(1)
+		  robot.MoveL(robot.Offs(p3,yy[1],yy[2],0,0,0,0),v2)
+		  robot.SetDo(2,0) --open
+		  robot.SetDo(1,1)
+		  robot.sleep(1)
+		  robot.MoveL(robot.Offs(p3,yy[1],yy[2],200,0,0,0),v2)
+		  robot.MoveL(robot.Offs(p5,100*(i-row*3),-100*row,200,0,0,0),v2)
+		  robot.sleep(1)
+		  robot.MoveL(robot.Offs(p5,100*(i-row*3),-100*row,0,0,0,0),v2)
+		  robot.SetDo(1,0) --close
+		  robot.SetDo(2,1)
+		  robot.sleep(1)
+		  robot.SetDo(2,0)
+		  robot.MoveL(robot.Offs(p5,100*(i-row*3),-100*row,200,0,0,0),v2)
+		  robot.SocketSendString("1207,put:0","s0")
+		  i=i+1
+		  if i==6 then
+	        i=0
+	      end 
+	    end
+	  end
+	  if ll==3 then
+	  	robot.SocketSendString("abcd0008","s1")
+	  	robot.SocketSendByte(13,"s1")
+	  	yy=robot.SocketRecvDoubleArray("s1")--array num 4
+	  	robot.SocketSendString("1207,put:1","s0")
+	  	if yy[0]==0 then
+		  robot.MoveL(robot.Offs(p3,yy[1],yy[2],200,0,0,0),v2)
+		  robot.sleep(1)
+		  robot.MoveL(robot.Offs(p3,yy[1],yy[2],0,0,0,0),v2)
+		  robot.SetDo(2,0) --open
+		  robot.SetDo(1,1)
+		  robot.sleep(1)
+		  robot.MoveL(robot.Offs(p3,yy[1],yy[2],200,0,0,0),v2)
+		  robot.MoveL(robot.Offs(p5,100*(i-row*3),-100*row,200,0,0,0),v2)
+		  robot.sleep(1)
+		  robot.MoveL(robot.Offs(p5,100*(i-row*3),-100*row,0,0,0,0),v2)
+		  robot.SetDo(1,0) --close
+		  robot.SetDo(2,1)
+		  robot.sleep(1)
+		  robot.SetDo(2,0)
+		  robot.MoveL(robot.Offs(p5,100*(i-row*3),-100*row,200,0,0,0),v2)
+		  robot.SocketSendString("1207,put:0","s0")
+		  i=i+1
+		  if i==6 then
+	        i=0
+	      end 
+	    end
+	  end
+	  
+	end
+  end
+end

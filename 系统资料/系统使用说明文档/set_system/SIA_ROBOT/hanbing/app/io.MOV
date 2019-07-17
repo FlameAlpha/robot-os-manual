@@ -1,0 +1,20 @@
+print("get bolt")
+robot.SetDo(2,1)--get bolt
+robot.sleep(1)
+robot.SetDo(2,0)
+
+print("wait get bolt finish")
+robot.WaitDi(2,1)
+print("move")
+robot.sleep(5)
+print("move finish")
+print("wrench bolt")
+robot.SetDo(1,1)
+robot.sleep(1)
+robot.SetDo(1,0)
+print("move down")
+robot.WaitDi(6,1)
+print("wrench finish,restart")
+
+
+

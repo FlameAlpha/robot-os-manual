@@ -1,0 +1,21 @@
+
+[tool0]
+robhold                        = 1
+tframe                         = toolframe0
+
+[tool1]
+robhold                        = 1
+tframe                         = toolframe1
+
+[tool2]
+robhold                        = 1
+tframe                         = toolframe2
+
+[tool10]
+robhold                        = 1
+tframe                         = toolframe10
+
+[tool11]
+robhold                        = 0
+tframe                         = toolframe11
+

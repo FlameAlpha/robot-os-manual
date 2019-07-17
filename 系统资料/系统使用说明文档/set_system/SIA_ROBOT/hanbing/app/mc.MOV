@@ -1,0 +1,3 @@
+robot.sleep(2)
+robot.MoveC(p3,p2,v1)
+robot.sleep(2)

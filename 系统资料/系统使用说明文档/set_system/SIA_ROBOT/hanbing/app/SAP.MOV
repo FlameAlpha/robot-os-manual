@@ -1,0 +1,44 @@
+robot.sleep(0.5)
+dy1=robot.SocketCreate("192.168.0.99",6660,"HMI")
+print(dy1)
+robot.sleep(1)
+dy2=robot.ClientCreate("192.168.0.99",8080,"camera")
+print(dy2)
+robot.sleep(1)
+robot.MoveA(j1,v1)
+robot.sleep(1)
+hmi_count=0
+pos_offset=100
+grip_offset=10
+while(1)   do
+  yy=robot.SocketRecvDoubleArray("HMI")--array num 5
+  hmi_count=0
+  while(hmi_count<5) do
+    robot.Grip_position(0)
+    robot.sleep(1)
+    robot.SocketSendInt(yy[hmi_count],"camera")
+    pos=robot.SocketRecvDoubleArray("camera")
+
+    zz=pos[2]+pos_offset
+    robot.MoveL(robot.Offs(p2,pos[0],pos[1],zz,0,0,pos[3]),v1,0,tool10,wobj10)
+    robot.sleep(0.5)
+    zz0=pos[2]-grip_offset
+    robot.MoveL(robot.Offs(p2,pos[0],pos[1],zz0,0,0,pos[3]),v1,0,tool10,wobj10)
+    robot.sleep(0.5)
+    robot.grip_position(1)
+    robot.sleep(2)
+    zz=pos[2]+pos_offset
+    robot.MoveL(robot.Offs(p2,pos[0],pos[1],zz,0,0,pos[3]),v1,0,tool10,wobj10)
+    robot.sleep(1)
+    robot.MoveL(p3,v1,0,tool10,wobj10)
+    robot.sleep(1)
+    zz1=0-pos_offset
+    robot.MoveL(robot.Offs(p3,0,0,zz1,0,0,0),v1,0,tool10,wobj10)
+    robot.Grip_position(0)
+    robot.sleep(2)
+    robot.MoveL(p3,v1,0,tool10,wobj10)
+    robot.sleep(1)
+    robot.MoveA(j1,v1)
+  end
+  robot.SocketSendInt(0,"HMI")
+end

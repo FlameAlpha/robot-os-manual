@@ -1,0 +1,57 @@
+
+get_bolt=-5
+wre_bolt=-8
+tar_num=0
+i=0
+c_ret=robot.SocketCreate("192.168.0.99",6665,"s0")
+print(c_ret)
+
+while (1) do
+
+  print("move for photos")
+  robot.MoveA(j3,v1)
+  robot.sleep(1)
+  print("photos")
+  robot.SocketSendString("RBT|1|1","s0")
+  tar_pos=robot.SocketRecvDoubleArray("s0")
+  tar_num=#tar_pos
+  i=0
+  while (i<tar_num)  do
+
+    print("move for get bolt")
+    robot.MoveA(j1,v1)
+    robot.sleep(1)
+    robot.MoveJ(robot.Offs(p1,0,0,get_bolt,0,0,0),v1)
+
+    print("get bolt")
+    robot.SetDo(2,1)--get bolt
+    robot.sleep(1)
+    robot.SetDo(2,0)
+
+    print("wait get bolt finish")
+    robot.WaitDi(2,1)
+    print("move for wrench bolt")
+    robot.MoveA(j1,v1)
+    robot.sleep(1)
+    robot.MoveJ(robot.Offs(p2,tar_pos[i],tar_pos[i+1],0,0,0,0),v1)
+    robot.sleep(1)
+    print("move finish")
+    print("wrench bolt")
+    robot.SetDo(1,1)
+    robot.sleep(1)
+    robot.SetDo(1,0)
+    print("move down")
+    robot.MoveL(robot.Offs(p2,tar_pos[i],tar_pos[i+1],wre_bolt,0,0,0),v1)
+    robot.sleep(0.5)
+
+    robot.WaitDi(6,1)
+    print("wrench finish,restart")
+    robot.MoveL(robot.Offs(p2,tar_pos[i],tar_pos[i+1],0,0,0,0),v1)
+    robot.sleep(1)
+    i=i+2
+  end
+
+end
+
+
+

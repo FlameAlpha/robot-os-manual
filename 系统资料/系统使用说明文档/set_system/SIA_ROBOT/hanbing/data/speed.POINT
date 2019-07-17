@@ -1,0 +1,91 @@
+
+[vpend]
+per1                          = 8
+
+per2                          = 8
+
+per3                          = 8
+
+per4                          = 8
+
+per5                          = 8
+
+per6                          = 8
+
+per_flag                      = 1
+
+tcp                           = 15
+
+tcp_flag                      = 2
+
+orl                           = 15
+
+orl_flag                      = 2
+
+
+
+
+[V0]
+per1                          = 3
+
+per2                          = 3
+
+per3                          = 3
+
+per4                          = 3
+
+per5                          = 3
+
+per6                          = 3
+
+per_flag                      = 2
+
+tcp                           = 15
+
+tcp_flag                      = 2
+
+orl                           = 5
+
+orl_flag                      = 0
+
+
+[V1]
+per1                          = 3
+
+per2                          = 3
+
+per3                          = 3
+
+per4                          = 3
+
+per5                          = 3
+
+per6                          = 3
+
+per_flag                      = 2
+
+tcp                           = 5
+
+tcp_flag                      = 2
+
+orl                           = 5
+
+orl_flag                      = 2
+
+
+[V2]
+per1                          = 6
+
+per2                          = 6
+
+per3                          = 6
+
+per4                          = 6
+
+per5                          = 6
+
+per6                          = 6
+
+tcp                           = 6
+
+orl                           = 6

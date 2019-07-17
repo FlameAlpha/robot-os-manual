@@ -1,0 +1,38 @@
+--dy1=robot.ClientCreate("192.168.0.88",3360,"s0")
+--print(dy1)
+--robot.sleep(1)
+zz=200
+yy[1]=0
+yy[2]=0
+yy[3]=0
+
+robot.MoveJ(robot.Offs(p1,0,0,zz,0,0,0),v0,zone0,tool0,wobj0)
+while(1) do
+--Get the target location from camera
+--robot.SocketSendString("a","s0")
+--yy=robot.SocketRecvDoubleArray("s0")
+
+--Move to the target location.
+robot.MoveL(robot.Offs(p0,yy[1],yy[2],zz,0,0,yy[3]),v0,zone0,tool0,wobj0)
+robot.MoveL(robot.Offs(p0,yy[1],yy[2],0,0,0,yy[3]),v0,zone0,tool0,wobj0)
+robot.sleep(0.5)
+--Pick up the object
+robot.SetDo(2,0) 
+robot.SetDo(1,1)
+robot.sleep(1)
+
+--Move to storage location.
+robot.MoveL(robot.Offs(p0,0,0,zz,0,0,0),v0,zone0,tool0,wobj0)
+robot.MoveL(robot.Offs(p1,0,0,zz,0,0,0),v0,zone0,tool0,wobj0)
+robot.MoveL(robot.Offs(p1,0,0,0,0,0,0),v0,zone0,tool0,wobj0)
+
+--Put down the object
+robot.SetDo(1,0) 
+robot.SetDo(2,1)
+robot.sleep(1)
+robot.SetDo(2,0)
+
+--Ready to pick up
+robot.MoveL(robot.Offs(p1,0,0,zz,0,0,0),v0,zone0,tool0,wobj0)
+
+end

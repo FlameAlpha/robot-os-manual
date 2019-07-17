@@ -1,0 +1,4 @@
+robot.MoveA(j1,v1)
+
+robot.MoveJ(p1,v1)
+robot.MoveL(p1,v1)

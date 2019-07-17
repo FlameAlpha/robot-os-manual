@@ -1,0 +1,30 @@
+--speed:15   zone:0.25
+print(robot.version)
+robot.AccSet(50,50)
+robot.MoveA(j30,v1)
+robot.sleep(1)
+robot.MoveL(p38,v1,z1)
+while(1)do
+   robot.MoveL(p40,v1,z1)
+   robot.MoveC(p31,p48,v1,z1)
+   robot.MoveL(p32,v1,z1)
+   robot.MoveC(p33,p49,v1,z1)
+   robot.MoveL(p35,v1,z1)
+   robot.MoveC(p36,p50,v1,z1)
+   robot.MoveL(p37,v1,z1)
+   robot.MoveC(p38,p51,v1,z1)
+   
+   robot.MoveC(p43,p45,v1,z1)
+   robot.MoveC(p35,p36,v1,z1)
+   robot.MoveL(p34,v1,z1)
+   robot.MoveC(p42,p47,v1,z1)
+   robot.MoveC(p39,p45,v1,z1)
+   robot.MoveL(p40,v1,z1)
+   robot.MoveC(p41,p31,v1,z1)
+   robot.MoveC(p33,p47,v1,z1)
+   robot.MoveC(p41,p32,v1,z1)
+  
+   robot.MoveL(p43,v1,z1)
+   robot.MoveC(p38,p37,v1,z1)
+
+end

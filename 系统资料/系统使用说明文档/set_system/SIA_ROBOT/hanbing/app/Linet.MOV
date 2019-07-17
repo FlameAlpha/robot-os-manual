@@ -1,0 +1,8 @@
+print(robot.version)
+robot.MoveA(j1,v1)
+while(1)do
+   robot.sleep(1)
+   robot.MoveA(j2,v1)
+   robot.sleep(1)
+   robot.MoveA(j1,v1)
+end

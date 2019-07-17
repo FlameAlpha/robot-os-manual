@@ -1,0 +1,4 @@
+robot.SetDo(1,0)
+robot.sleep(2)
+robot.SetDo(2,1)
+robot.sleep(12)

@@ -1,0 +1,33 @@
+robot.ClientCreate("192.168.0.65",4680,"s1")
+robot.SetDo(1,0)
+robot.SetDo(2,0)
+while(1)   do
+robot.MoveL(p11,v2)
+robot.sleep(1)
+robot.SocketSendString("G","s1")
+xy=robot.SocketRecvDoubleArray("s1")
+while(xy[0]==9999)   do
+  robot.SocketSendString("G","s1")
+  xy=robot.SocketRecvDoubleArray("s1")
+  robot.sleep(1)
+end
+
+
+robot.MoveL(robot.Offs(p10,xy[0],xy[1],0,0,0,0),v1)
+robot.sleep(1)
+robot.MoveL(robot.Offs(p9,xy[0],xy[1],0,0,0,0),v2)
+robot.sleep(1)
+robot.SetDo(2,0)
+robot.SetDo(1,1)
+robot.sleep(2)
+robot.MoveL(robot.Offs(p10,xy[0],xy[1],0,0,0,0),v2)
+robot.sleep(1)
+robot.MoveL(p11,v1)
+robot.sleep(1)
+robot.MoveL(p12,v2)
+robot.sleep(1)
+robot.SetDo(1,0)
+robot.SetDo(2,1)
+robot.sleep(1)
+robot.SetDo(2,0)
+end

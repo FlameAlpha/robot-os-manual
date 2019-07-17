@@ -1,0 +1,25 @@
+
+get_bolt=-5
+wre_bolt=-8
+tar_num=0
+i=0
+c_ret=robot.SocketCreate("192.168.0.99",6660,"s0")
+print(c_ret)
+
+while (1) do
+
+  print("move for photos")
+  robot.sleep(1)
+  print("photos")
+  robot.SocketSendString("RBT|1|1","s0")
+  tar_pos=robot.SocketRecvDoubleArray("s0")
+  tar_num=#tar_pos
+  print(tar_num)
+  i=0
+  while (i<tar_num) do
+    print(tar_pos[i])
+    print(tar_pos[i+1])
+    i=i+2
+  end
+end
+

@@ -1,0 +1,3 @@
+print(robot.version)
+robot.MoveA(j3,v0)
+robot.sleep(2)
